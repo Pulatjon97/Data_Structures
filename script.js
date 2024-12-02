@@ -48,6 +48,38 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+const rest1 = {
+  name: "Capri",
+  // numGuests: 20,
+  numGuests: 0,
+};
+const rest2 = {
+  name: "La Piazza",
+  owner: "Giovanni Rossi",
+};
+//OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+//nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+//AND assignment operator
+// rest1.owner = rest1.owner && "<ANONYMOUS>";
+// rest2.owner = rest2.owner && "<ANONYMOUS>";
+
+rest1.owner &&= "<ANONYMOUS";
+rest2.owner &&= "<ANONYMOUS";
+
+console.log(rest1);
+console.log(rest2);
+
+/*
 //////////////////////////////
 // Nullish Coalescing Operator
 // restaurant.numGuest = 0;/
@@ -57,6 +89,7 @@ console.log(guests);
 //Nullish: null and undefined (NOT 0 or '')
 const guestCorrect = restaurant.numGuest ?? 10;
 console.log(guestCorrect);
+*/
 /*
 ///////////////////////////
 //Short Circuiting (&& ||)
@@ -252,3 +285,180 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 */
+
+// Challenge#1
+//The Complete JavaScript Course 16
+
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//My solutuion not complete 🤤
+/*
+const players1 = [
+  "Neuer",
+  "Pavard",
+  "Martinez",
+  "Alaba",
+  "Davies",
+  "Kimmich",
+  "Goretzka",
+  "Coman",
+  "Muller",
+  "Gnarby",
+  "Lewandowski",
+];
+const players2 = [
+  "Burki",
+  "Schulz",
+  "Hummels",
+  "Akanji",
+  "Hakimi",
+  "Weigl",
+  "Witsel",
+  "Hazard",
+  "Brandt",
+  "Sancho",
+  "Gotze",
+];
+const team1gk = "Neuer";
+const team2gk = "Burki";
+
+const fieldPlayers1 = [
+  "Pavard",
+  "Martinez",
+  "Alaba",
+  "Davies",
+  "Kimmich",
+  "Goretzka",
+  "Coman",
+  "Muller",
+  "Gnarby",
+  "Lewandowski",
+];
+
+const fieldPlayers2 = [
+  "Schulz",
+  "Hummels",
+  "Akanji",
+  "Hakimi",
+  "Weigl",
+  "Witsel",
+  "Hazard",
+  "Brandt",
+  "Sancho",
+  "Gotze",
+];
+
+const allPlayers = [
+  "Neuer",
+  "Pavard",
+  "Martinez",
+  "Alaba",
+  "Davies",
+  "Kimmich",
+  "Goretzka",
+  "Coman",
+  "Muller",
+  "Gnarby",
+  "Lewandowski",
+  "Burki",
+  "Schulz",
+  "Hummels",
+  "Akanji",
+  "Hakimi",
+  "Weigl",
+  "Witsel",
+  "Hazard",
+  "Brandt",
+  "Sancho",
+  "Gotze",
+];
+let players1Final = [
+  "Neuer",
+  "Pavard",
+  "Martinez",
+  "Alaba",
+  "Davies",
+  "Kimmich",
+  "Goretzka",
+  "Coman",
+  "Muller",
+  "Gnarby",
+  "Lewandowski",
+];
+players1Final.push("Thiago", "Coutinho", "Perisic");
+console.log(players1Final);
+*/
+
+//Teacher's solution:
+//1)
+const [players1, players2] = game.players;
+console.log(players1, players2);
+
+//2)
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+//3)
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+//4)
+const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+
+//5)
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+//6)
+const printGoals = function (...players) {
+  console.log(players);
+  console.log(`${players.length} goals were scored`);
+};
+// printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
+// printGoals("Davies", "Muller");
+printGoals(...game.scored);
+
+//7)
+team1 < team2 && console.log("Team1 is more likely to win");
+team1 > team2 && console.log("Team2 is more likely to win");
