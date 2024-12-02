@@ -1,6 +1,6 @@
 "use strict";
 /////////////////////////////////
-/*
+
 const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 const openingHours = {
   [weekdays[3]]: {
@@ -51,6 +51,47 @@ const restaurant = {
   },
 };
 
+const ordersSet = new Set([
+  "Pasta",
+  "Pizza",
+  "Pizza",
+  "Risotto",
+  "Pasta",
+  "Pizza",
+]);
+console.log(ordersSet);
+
+console.log(new Set("Ali"));
+
+console.log(ordersSet.size);
+
+console.log(ordersSet.has("Bread"));
+console.log(ordersSet.has("Pizza"));
+ordersSet.add("Garlic Bread");
+ordersSet.add("Garlic Bread");
+ordersSet.delete("Risotto");
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+//Example
+const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+const staffUnique = [...new Set(staff)]; //Converted to arrays simply with the help of brackets[]
+console.log(staffUnique);
+
+console.log(
+  new Set(["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"]).size
+);
+
+console.log(new Set("MirvalievTurgunpulatTokhirjonUgli").size); //This gives 18 it it because it doesn't give duplicate values
+const name1 = "MirvalievTurgunpulatTokhirjonUgli"; // Your name as a string
+const nameArray = [...name1]; // Convert it into an array of characters
+const nameSize = nameArray.length; // Get the length of the array
+
+console.log(nameSize); // Output: 33
+
+/*
 ////////////////
 //Property NAMES
 const properties = Object.keys(openingHours);
@@ -367,46 +408,46 @@ console.log(p, q, r);
 // Challenge#1
 //The Complete JavaScript Course 16
 
-const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
-  players: [
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
-    ],
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
-  ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: "Bayern Munich",
+//   team2: "Borrussia Dortmund",
+//   players: [
+//     [
+//       "Neuer",
+//       "Pavard",
+//       "Martinez",
+//       "Alaba",
+//       "Davies",
+//       "Kimmich",
+//       "Goretzka",
+//       "Coman",
+//       "Muller",
+//       "Gnarby",
+//       "Lewandowski",
+//     ],
+//     [
+//       "Burki",
+//       "Schulz",
+//       "Hummels",
+//       "Akanji",
+//       "Hakimi",
+//       "Weigl",
+//       "Witsel",
+//       "Hazard",
+//       "Brandt",
+//       "Sancho",
+//       "Gotze",
+//     ],
+//   ],
+//   score: "4:0",
+//   scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+//   date: "Nov 9th, 2037",
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
 //My solutuion not complete 🤤
 /*
@@ -545,22 +586,22 @@ team1 > team2 && console.log("Team2 is more likely to win");
 ////////////////
 //Chalenge#2
 // 1)
-for (const [i, player] of game.scored.entries())
-  console.log(`Goal ${i + 1}: ${player}`);
+// for (const [i, player] of game.scored.entries())
+//   console.log(`Goal ${i + 1}: ${player}`);
 
-// 2)
-const odds = Object.values(game.odds);
-let average = 0;
-for (const odd of odds) average += odd;
-console.log(average);
-average /= odds.length;
-console.log(average);
+// // 2)
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) average += odd;
+// console.log(average);
+// average /= odds.length;
+// console.log(average);
 
-// 3)
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr} ${odd}`);
-}
+// // 3)
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr} ${odd}`);
+// }
 
 // Odd of victory Bayern Munich: 1.33
 // Odd of draw: 3.25
