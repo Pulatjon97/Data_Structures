@@ -48,7 +48,18 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+//LOOPING ARRAYS: The For-of loop
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) console.log(item);
 
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// console.log([...menu.entries()]);
+
+/*
+//Logical Assignment Operator
 const rest1 = {
   name: "Capri",
   // numGuests: 20,
@@ -78,7 +89,7 @@ rest2.owner &&= "<ANONYMOUS";
 
 console.log(rest1);
 console.log(rest2);
-
+*/
 /*
 //////////////////////////////
 // Nullish Coalescing Operator
@@ -286,6 +297,7 @@ const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 */
 
+/*
 // Challenge#1
 //The Complete JavaScript Course 16
 
@@ -427,7 +439,7 @@ let players1Final = [
 players1Final.push("Thiago", "Coutinho", "Perisic");
 console.log(players1Final);
 */
-
+/*
 //Teacher's solution:
 //1)
 const [players1, players2] = game.players;
@@ -462,3 +474,4 @@ printGoals(...game.scored);
 //7)
 team1 < team2 && console.log("Team1 is more likely to win");
 team1 > team2 && console.log("Team2 is more likely to win");
+*/
