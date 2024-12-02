@@ -1,5 +1,6 @@
 "use strict";
-
+/////////////////////////////////
+/*
 const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 const openingHours = {
   [weekdays[3]]: {
@@ -77,7 +78,8 @@ const entries = Object.entries(openingHours);
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
-
+*/
+//////////////////////
 /*
 //Optional Chaining
 if (restaurant.openingHours && restaurant.openingHours.mon)
@@ -362,7 +364,6 @@ const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 */
 
-/*
 // Challenge#1
 //The Complete JavaScript Course 16
 
@@ -540,3 +541,27 @@ printGoals(...game.scored);
 team1 < team2 && console.log("Team1 is more likely to win");
 team1 > team2 && console.log("Team2 is more likely to win");
 */
+
+////////////////
+//Chalenge#2
+// 1)
+for (const [i, player] of game.scored.entries())
+  console.log(`Goal ${i + 1}: ${player}`);
+
+// 2)
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+console.log(average);
+average /= odds.length;
+console.log(average);
+
+// 3)
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+// Odd of victory Bayern Munich: 1.33
+// Odd of draw: 3.25
+// Odd of victory Borrussia Dortmund: 6.5
