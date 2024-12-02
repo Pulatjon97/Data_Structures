@@ -49,6 +49,34 @@ const restaurant = {
   },
 };
 
+console.log("--- OR ---");
+
+//Use ANY data type, return ANY data tye, short-circuiting
+console.log(3 || "Ali");
+console.log("" || "Ali");
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+
+restaurant.numGuest = 0;
+const guests1 = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guests1);
+const guest2 = restaurant.numGuest || 10;
+console.log(guest2);
+
+console.log("--- AND ---");
+console.log(0 && "Ali");
+console.log(7 && "Ali");
+console.log("Hello" && 23 && null && "Ali");
+
+//Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach");
+}
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+/*
+//Rest pattern and Parameters
 //1) Destructuring
 //SPREAD, beacuse on RIGHT side of =
 const arr = [1, 2, ...[3, 4]];
@@ -79,13 +107,14 @@ add(...x);
 
 restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
 restaurant.orderPizza("mushrooms");
+*/
 /*
 /////Spread Operator
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArr);
 
-const newArr = [1, 2, ...arr];
+const newArr = [1, 2, ...arr]; 
 console.log(newArr);
 console.log(...newArr); /// 1 2 7 8 9
 
