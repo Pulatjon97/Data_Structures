@@ -51,6 +51,59 @@ const restaurant = {
   },
 };
 
+/////////////////////////////////////////////////
+//Working with Strings - Part 3
+///Split and Join
+console.log("a+very+nice+string".split("+"));
+console.log("Mirvaliev Turgunpulat Tokhirjon Ugli".split(" "));
+const [firstName, lastName] = "Mirvaliev Turgunpulat Tokhirjon Ugli".split(" ");
+
+const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(" ");
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(" "));
+};
+
+capitalizeName("jessica ann smith davis");
+capitalizeName("mirvaliev turgunpulat");
+
+//Padding a string
+const message = "Go to gate 23!";
+console.log(message.padStart(20, "+").padEnd(30, "+"));
+console.log("Ali".padStart(20, "+").padEnd(30, "+"));
+
+const maskCreditCard = function (number) {
+  const str = number + "";
+  const last = str.slice(-4);
+  return last.padStart(str.length, "*");
+};
+
+console.log(maskCreditCard(434343434));
+console.log(maskCreditCard(434342342352453423));
+console.log(maskCreditCard("234234235345345345345234523"));
+
+//Repeat method
+const message2 = "Bad weather... All Departures Delayed...";
+console.log(message2.repeat(5));
+
+const planesInline = function (n) {
+  console.log(`There are ${n} planes in line ${"🛩️".repeat(n)}`);
+};
+planesInline(5);
+planesInline(3);
+planesInline(12);
+
+/*
+/////////////////////////////////////////////////
+//Working with Strings - Part 2
 const question = new Map([
   ["question", "What is the best programming language in the world?"],
   [1, "C"],
@@ -143,7 +196,8 @@ const checkBaggage = function (items) {
 checkBaggage("I have a laptop, some Food and a pocket knife");
 checkBaggage("Socks and camera");
 checkBaggage("Got some snacks and a gun for protection");
-
+*/
+//////////////////////////////////////////////////////////////////
 /*
 /////////////////////////////////////////////////
 //Working with Strings - Part 1
